@@ -1,0 +1,53 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            list-style-type: none;
+        }
+        body {
+            display: flex;
+            {#justify-content: center;#}
+            {#align-items: center;#}
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* 背景颜色 */
+        }
+        .sql_create {
+            height: 100px;
+            width: 100px;
+            text-align: center;
+        }
+        .sql_create a {
+            font-size: 15px;
+            color: #333; /* 链接颜色 */
+            text-decoration: none; /* 去掉下划线 */
+        }
+        .sql_create a:hover {
+            color: #007BFF; /* 鼠标悬停时的颜色 */
+        }
+        .sql_create img {
+            border-radius: 50%;
+
+            display: block;
+            margin: 20px auto; /* 图片居中 */
+            max-width: 100%; /* 确保图片不会超出容器宽度 */
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+<div class="sql_create">
+<a href="{% url 'sql_table_create' %}"><img src="{% static 'sql.jpg' %}" alt="" ></a>
+<a href="{% url 'sql_table_create' %}">sql生成器</a>
+</div>
+    </li>
+
+</ul>
+</body>
+</html>

@@ -1,0 +1,88 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Table Create</title>
+</head>
+ <style>
+        body{
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            {#align-items: center; /* 垂直居中 */#}
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* 背景颜色 */
+            font-family: Arial, sans-serif; /* 字体 */
+        }
+        .input1 {
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            height: 500px;
+            width: 400px;
+            margin: 50 0;
+            background-color: #f0f0f0; /* 背景颜色 */
+            font-family: Arial, sans-serif; /* 字体 */
+        }
+        .container {
+            background-color: white; /* 容器背景颜色 */
+            padding: 20px;
+            border-radius: 8px; /* 圆角边框 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+            max-width: 500px; /* 最大宽度 */
+            width: 100%; /* 宽度自适应 */
+        }
+        .form-group {
+            margin-bottom: 15px; /* 表单组间距 */
+        }
+        label {
+            display: block;
+            margin-bottom: 5px; /* 标签间距 */
+        }
+        input, select{
+            width: 100%; /* 输入框宽度 */
+            padding: 5px;
+            border: 1px solid #ccc; /* 边框 */
+            border-radius: 4px; /* 圆角边框 */
+        }
+        textarea{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc; /* 边框 */
+            border-radius: 4px; /* 圆角边框 */
+            margin: 20px 0;
+            {#resize: vertical; /* 允许垂直方向调整大小 */#}
+        }
+        button {
+            width: 100%; /* 按钮宽度 */
+            padding: 10px;
+            background-color: #007BFF; /* 按钮背景颜色 */
+            color: white; /* 按钮文字颜色 */
+            border: none;
+            border-radius: 4px; /* 圆角边框 */
+            cursor: pointer; /* 鼠标指针 */
+        }
+        button:hover {
+            background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
+        }
+    </style>
+<body>
+<div>
+<div class="input1">
+    <form method="POST">
+        {% csrf_token %}
+         {{ form.as_p }}
+        <!-- Your form fields here -->
+        <button type="submit" autocapitalize="on">生成</button>
+    </form>
+</div>
+<div>
+    {% if sql_create_table %}
+        <textarea id="end" name="end" rows="10" cols="50">{{ sql_create_table }}</textarea>
+    {% endif %}
+</div>
+</div>
+</body>
+</html>
